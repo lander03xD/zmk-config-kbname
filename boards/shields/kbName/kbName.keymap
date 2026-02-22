@@ -29,7 +29,7 @@
 
         base_layer {
             display-name = "Base";
-            bindings = < &td0    &td1    &td2    &none   &kp D >; //tap_dance behaviors in keymap
+            bindings = < &td0    &td1    &td_shift    &none   &kp D >; //tap_dance behaviors in keymap
         };
         
         layer_1 { // Layer 1 to show layerswitching is possible in tapdance
