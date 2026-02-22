@@ -8,19 +8,21 @@
             compatible = "zmk,behavior-tap-dance"; //compatible for all tap-dance keys
             tapping-term-ms = <300>; //max time between taps in miliseconds
             bindings = <&kp A>, <&kp B>, <&kp C>; //list of behaviors producible by tapdance
-            //#binding-cells = <0>;  // Binding cells not used
+            #binding-cells = <0>;  // Binding cells required but always 0
         };
         
     	td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             tapping-term-ms = <100>;
             bindings = <&bt BT_CLR>, <&mt LSHIFT A>, <&to 1>; // Other behaviors possible
+            #binding-cells = <0>;  // Binding cells required but always 0
         };
         
     	td_shift: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
             tapping-term-ms = <150>;
             bindings = <&kp LSHIFT>, <&kp CAPS>; //Caps lock when shift is pressed twice quickly
+            #binding-cells = <0>;  // Binding cells required but always 0
         };
     };
     
