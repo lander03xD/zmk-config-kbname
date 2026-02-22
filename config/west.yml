@@ -4,6 +4,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: lander03xd
+      url-base: https://github.com/lander03xd
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
@@ -11,9 +13,9 @@ manifest:
       remote: zmkfirmware
       import: app/west.yml
     # Adding my own custom behavior
-    - name: lander03xd
-      remote: zmk-behavior-morse
+    - name: zmk-behavor-morse
+      remote: lander03xd
       revision: main
-      path: modules/zm-module-lander03xd
+      path: modules/zmk-module-lander03xd
   self:
     path: config
