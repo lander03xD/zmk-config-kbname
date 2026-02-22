@@ -1,14 +1,40 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-
+#include <dt-bindings/zmk/bt.h> // Include for bluetooth behaviors
 
 / {  
+    behaviors {
+    	td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance"; //compatible for all tap-dance keys
+            tapping-term-ms = <300>; //max time between taps in miliseconds
+            bindings = <&kp A>, <&kp B>, <&kp C>; //list of behaviors producible by tapdance
+            //#binding-cells = <0>;  // Binding cells not used
+        };
+        
+    	td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            tapping-term-ms = <100>;
+            bindings = <&bt BT_CLR>, <&mt LSHIFT A>, <&to 1>; // Other behaviors possible
+        };
+        
+    	td_shift: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            tapping-term-ms = <150>;
+            bindings = <&kp LSHIFT>, <&kp CAPS>; //Caps lock when shift is pressed twice quickly
+        };
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
         base_layer {
             display-name = "Base";
-            bindings = < &kp O    &kp A    &kp E    &kp T   &kp SPACE >;
+            bindings = < &td0    &td1    &td2    &none   &kp D >; //tap_dance behaviors in keymap
+        };
+        
+        layer_1 { // Layer 1 to show layerswitching is possible in tapdance
+            display-name = "Layer1"; 
+            bindings = < &to 0   &none    &none    &none   &none >; 
         };
     };
  };
